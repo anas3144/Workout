@@ -1,0 +1,30 @@
+{
+  "exercises": [
+    {
+      "exercisename": "ss",
+      "description": "ss"
+    },
+    {
+      "exercisename": "armhävning",
+      "description": "39st"
+    },
+    {
+      "exercisename": "ben",
+      "description": "40st"
+    }
+  ],
+  "customers": [
+    {
+      "username": "annika",
+      "password": "3^XdYs4A#9"
+    },
+    {
+      "username": "anna",
+      "password": "l4dGlWQoxh"
+    },
+    {
+      "username": "kalle",
+      "password": "INQG93I0&B"
+    }
+  ]
+}
