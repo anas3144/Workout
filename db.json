@@ -1,30 +1,20 @@
 {
-  "exercises": [
-    {
-      "exercisename": "ss",
-      "description": "ss"
-    },
-    {
-      "exercisename": "armhävning",
-      "description": "39st"
-    },
-    {
-      "exercisename": "ben",
-      "description": "40st"
-    }
-  ],
-  "customers": [
+  "exercises": [],
+  "users": [
     {
       "username": "annika",
-      "password": "3^XdYs4A#9"
+      "password": "WrKUMcIzD)",
+      "usertype": 0
     },
     {
-      "username": "anna",
-      "password": "l4dGlWQoxh"
+      "username": "lumi",
+      "password": "Ih7Jd2hag$",
+      "usertype": 1
     },
     {
-      "username": "kalle",
-      "password": "INQG93I0&B"
+      "username": "marre",
+      "password": "B0m4vrv5Pq",
+      "usertype": 0
     }
   ]
 }

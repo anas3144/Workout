@@ -25,16 +25,6 @@ function save_exercise_and_description(){
     });
 }
 
-function collect_exercise_and_description_old(){
-    //take the value from the input tag
-    let input_exercise = document.getElementById("inputfield_exercise").value
-    let input_description = document.getElementById("inputfield_description").value
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", `http://localhost:3000/addexercise?exe=${input_exercise}&des=${input_description}`, true );
-    xmlHttp.send(null);
-    return xmlHttp.responseText;
-}
-
 
 //fetch data from json-fil about exercises 
 function show_exercises_and_descriptions(){
@@ -71,13 +61,34 @@ function append_data(data) {
 // ****** LOGIN ******
 
 function check_validation(){
-    let input_idnumber = document.getElementById("inputfield_idnumber").value
+    let input_username = document.getElementById("inputfield_username").value
     let input_password = document.getElementById("inputfield_password").value
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", `http://localhost:3000/check_validation?idnr=${input_idnumber}&password=${input_password}`, true );
-    xmlHttp.send(null);
-    return xmlHttp.responseText;
+    console.log("inside CV")
+    console.log(input_username)
+    console.log(input_password)
+    fetch('http://localhost:3000/check_validation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username : input_username,
+            password: input_password
+        })
+    })
+    .then(function (response) {
+        console.log(response);
+        //check_usertype();
+    })
+    .then(function (data) {
+        console.log(data)    
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
 }
+
+
 
 
 
@@ -102,10 +113,11 @@ function generate_password(){
     document.getElementById("generated_password").value = password; 
 }
 
-function save_client_information(){
+function save_user_information(number){
     var username = document.getElementById("inputfield_username").value;
     var password = document.getElementById("generated_password").value;
-    fetch('http://localhost:3000/save_customer', {
+    var usertype = number;
+    fetch('http://localhost:3000/save_user', {
         method: 'POST',
         //tell that we are passing json
         headers: {
@@ -114,7 +126,8 @@ function save_client_information(){
         //pass the data, fetchfunction do need the body to be stringify
         body: JSON.stringify({
             username: username,
-            password: password
+            password: password,
+            usertype: usertype
         })
     })
     .then(function (response) {

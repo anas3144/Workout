@@ -13,17 +13,16 @@
 <body>
 	<div class="container">
 		<h1 class="log">Login</h1>
-		<form class="form" action="schedule_1.html" method="post" name="form" onsubmit="return checking()">
+		
 			<div class="ID_Number">ID_Number</div>
-			<input autocomplete="off" type="text" name="ID_Number" placeholder="ID_Number" id="inputfield_idnumber">
+			<input autocomplete="off" type="text" placeholder="ID_Number" id="inputfield_username">
 			<div id="ID_error">Please enter a valid ID_Number</div>
 			<div class="pass">Password</div>
 			<input type="password" name="password" placeholder="Password" id="inputfield_password">
 			<div id="pass_error">Please fill up your Password</div>
-			<button type="submit">Login as customer</button>
-		</form>
+			<button type="submit" onclick="check_validation()">Login as customer</button>
+		
 	</div>
-	<script src="login.js"></script>
 	
 </body>
 <style>

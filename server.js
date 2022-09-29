@@ -3,15 +3,15 @@ const express = require('express');
 //set up the server
 const app = express(); 
 //choose port 
-const PORT = 3000; 
+const port = process.env.PORT || 3000; 
 const path = require('path');
-app.listen(PORT, () => console.log('listening on port:', PORT ));
+app.listen(port, () => console.log('listening on port:', port));
 
 //fetch is sending as a json
 app.use(express.json())
 
 //Create the db variable with a structure object = {}, array[]
-var db = {"exercises": [], "customers": []};
+var db = {"exercises": [], "users": []};
 //include the filesystem module
 const fs = require('fs');
 //if the database file, db.json, already exist: read in the information into variable db
@@ -74,12 +74,26 @@ app.get('/login', (req, res) => {
     })
 });
 
-app.get('/check_validation', (req, res) => {
-    var input_idnumber = req.query.idnr;
-    var input_password = req.query.password;
-    for(i = 0; i < db.clients.lengts; i++){
-        console.log(db.clients[i]);
+app.post('/check_validation', (req, res) => {
+    console.log("inside server")
+    var input_idnumber = req.body.username;
+    var input_password = req.body.password;
+    //for(i = 0; i < db.customers.length; i++){
+   //     console.log(db.customers[i]);
+    //}
+    var options = {
+        root: path.join(__dirname)
     }
+    var fileName = "trainer.html";
+    res.sendFile(fileName, options, function (err){
+        if (err){
+            next(err);
+        }
+        else{
+            console.log("Sent:", fileName);
+        }
+    })
+
 })
 
 
@@ -141,23 +155,26 @@ app.get('/manager', (req, res) => {
 });
 
 
-app.post('/save_customer', (req, res) => {
+app.post('/save_user', (req, res) => {
     console.log("inside server")
     var username = req.body.username;
     var password = req.body.password;
+    var usertype = req.body.usertype;
     console.log(username);
     console.log(password);
+    console.log(usertype);
     var customer = {
         username: username, 
-        password: password 
+        password: password,
+        usertype: usertype 
     }
     console.log(customer);
-    db["customers"].push(customer);
+    db["users"].push(customer);
     //write the db into the json file
     var data = JSON.stringify(db, null, 2);
     fs.writeFile('db.json', `${data}`, {flag: 'w'}, (err) => {
         if (err) throw err;
         res.send();
-        console.log('Customer info added to file');
+        console.log('user info added to file');
     })
 });
