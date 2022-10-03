@@ -1,0 +1,79 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+
+.rub {
+	margin: auto; 
+	background-color: darkslategray;
+	color: white;
+}
+
+#nav{
+	display: flex;
+	justify-content: space-between; /*move the containe to another side */
+	align-items: center;
+	padding: 5px;
+	position:sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.GYM{
+	/* width: 80px; */
+	font-style: italic;
+	height: 50px;
+	border: 10px solid;
+	font-size: 30px;
+}
+
+#nav ul{
+	display: flex;
+	list-style:none;
+	padding:10px;
+	display:inline-block;
+}
+
+/* #nav ul li a{
+	color:white;
+	padding: 20px;
+} */
+
+/* #nav ul li a:hover{
+	background-color: aquamarine;
+	border-radius: 5px;
+} */
+
+/*section..*/
+.content{
+	text-align: center;
+	/* justify-content: center; */
+}
+
+.heading{
+		color: brown;
+		font-size: 50px;
+		text-align: center;
+		padding: 30px;
+}
+
+.BM{
+	background-color:aqua;
+	color:white;
+	padding: 20px;
+}
+
+.BM:hover{
+	background-color: brown;
+}
+
+#sec{
+	position: flex;
+	background: url(picture/gym-600.jpg) no-repeat center/cover;
+	height: 100vh;
+}
+
+
