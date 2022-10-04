@@ -97,15 +97,15 @@ function check_validation(){
     console.log("inside CV")
     console.log(input_username)
     console.log(input_password)
-    fetch('http://localhost:3000/login/check_validation', {
-        method: 'POST',
+    fetch(`http://localhost:3000/login/check_validation?username=${input_username}&password=${input_password}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            username : input_username,
-            password: input_password
-        })
+        //body: JSON.stringify({
+        //    username : input_username,
+        //    password: input_password
+        //})
     })
     .then(function (response) {
         response.json()
