@@ -2,27 +2,63 @@
 const express = require('express'); 
 //database
 const mongoose = require('mongoose')
+
+
 //user router that is created in users.js
 //Routers
 const loginRouter = require('./routes/login') 
 const managerRouter = require('./routes/manager')
 const trainerRouter = require('./routes/trainer')
 const app = express(); 
+
+//sessions
+const session = require('express-session');
+const MongoDBSession = require('connect-mongodb-session')(session);
+const mongoURL = 'mongodb://localhost/gymdb'
+
+
+
+
+
  
 const port = process.env.PORT || 3000; 
 const path = require('path');
 app.listen(port, () => console.log('listening on port:', port));
 
 
-
-//connect to db
-mongoose.connect('mongodb://localhost/gymdb', {
-    useNewUrlParser: true, useUnifiedTopology: true
-})
-
 app.use(express.json())
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: false}))
+
+
+
+//connect to db
+mongoose.connect(mongoURL, {
+    useNewUrlParser: true, 
+    //useCreateIndex: true,
+    useUnifiedTopology: true
+})
+.then((res) => {
+    console.log("MongoDB Connected");
+})
+
+
+//sessions DB
+const store = new MongoDBSession({
+    uri: mongoURL, 
+    collection: 'mySessions',
+})
+
+//Sessions - set the session to our req-object
+app.use(session({
+    secret: 'hej',
+    saveUninitialized: false,
+    resave: false,
+    store: store,
+}));
+
+//req.session.isAuth - set the coookie in the browser
+//req.session.id - match up with the id in the cookie
 
 
 
@@ -34,12 +70,23 @@ app.use('/login', loginRouter)
 app.use('/manager', managerRouter)
 app.use('/trainer', trainerRouter)
 
+const isAuth = (req, res, next) => {
+    if(req.session.isAuth){
+        next()
+    }
+    else{
+        res.redirect('login')
+    }
+}
 
 
 
 
 // ****** HOMEPAGE ******
 app.get('/', (req, res) => {
+    // console.log(req.session);
+    // req.session.isAuth = true
+    // console.log(req.session);
     res.render('home')
 });
 

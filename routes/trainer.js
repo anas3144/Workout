@@ -20,7 +20,7 @@ router.post('/addexercise', async (req, res) => {
     } catch (err){
         res.render('trainer')
     }
-    
+ 
 })
 
 
