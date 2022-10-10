@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(3, 3, 3);
+    font-family: Rajdhani;
+    /*background-image: url('start-page-copy.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+.container{
+    position: relative;
+    text-align: center;
+    background-color: rgb(21, 20, 20);
+    box-shadow: 10px 10px 5px black;
+    
+}
+
+.centerBox{
+    background: black;
+    color:rgb(4, 4, 4);
+    height: 550px;
+    box-shadow: 10px 10px 5px rgb(18, 15, 15);
+}
+
+
+.login-wrapper .login{
+    display: inline-block;
+    background-color: rgb(64, 5, 5);
+    border: 4px double #ccc;
+    color: rgb(159, 150, 150);
+    font-size: 20px;
+    padding: 20px;
+    width: 180px;
+    transition: all 0.5s;
+    margin: 25px;
+}
+
+
+
+.info-wrapper{
+    background:black;
+    height: 200px;
+    box-shadow: 10px 10px 5px black;
+    color: rgb(155, 140, 140);
+    
+
+}
+
+
+.img-gym{
+    width: 1200px;
+    height: 900px;
+    display: block;
+    margin: 0px auto;
+    background-image: url('start-page-copy.jpg');
+    box-shadow: 5px 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 5px black;
+}
+
