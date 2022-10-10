@@ -2,13 +2,21 @@ const express = require('express')
 const Exercise = require('./../models/exercise')
 const router = express.Router() 
 
+const isAuthTrainer = function (req, res, next) {
+    if (req.session.isAuth && (req.session.usertype === 't')) {
+        next()
+    }
+    else {
+        res.redirect('login')
+    }
+}
 
 //login
-router.get('/', (req, res) => {
+router.get('/', isAuthTrainer, (req, res) => {
     res.render('trainer')
 })
 
-router.post('/addexercise', async (req, res) => {
+router.post('/addexercise', isAuthTrainer, async (req, res) => {
     console.log("inside addexercises")
     const exercise = new Exercise({
         name: req.body.exercise,

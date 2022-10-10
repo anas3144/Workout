@@ -54,10 +54,6 @@ function save_exercise_and_description(){
 
 
 
-
-
-
-
 //fetch data from json-fil about exercises 
 function show_exercises_and_descriptions(){
     fetch('exercises_from_json')
@@ -97,24 +93,6 @@ function check_validation(){
     console.log("inside CV")
     console.log(input_username)
     console.log(input_password)
-
-    // fetch('http://localhost:3000/login/test', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //        username : input_username,
-    //        password: input_password
-    //     })
-    // })
-    // .then(function (response) {
-    //     response.json()
-    // })
-    // .catch(function (err) {
-    //     console.log('error: ' + err);
-    // });
-
     fetch('http://localhost:3000/login/check_validation', {
         method: 'POST',
         headers: {
@@ -126,7 +104,8 @@ function check_validation(){
         })
     })
     .then(function (response) {
-        response.json()
+        console.log(response)
+        window.location.href = response.url;
     })
     .catch(function (err) {
         console.log('error: ' + err);

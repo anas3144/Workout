@@ -3,14 +3,23 @@ const User = require('./../models/user')
 const router = express.Router() 
 var bcrypt = require('bcrypt')
 
+//auth function - check that the user is auth and have the right usertype
+const isAuthManager = function (req, res, next) {
+    if (req.session.isAuth && (req.session.usertype === 'm')) {
+        next()
+    }
+    else {
+        res.redirect('login')
+    }
+}
 
 // '/manager'
-router.get('/', (req, res) => {
+router.get('/', isAuthManager, (req, res) => {
     res.render('manager')
 })
 
 // '/manager/save_user'
-router.post('/save_user', async (req, res) => {
+router.post('/save_user', isAuthManager, async (req, res) => {
     console.log("inside saveuser")
     var password = generate_password()
     var hashpassword = ""
@@ -47,9 +56,11 @@ function generate_password(){
 }
 
 
+
 module.exports = router
 
 
 //for test
 //q -> yYh8m9XiSJ -> saved as customer
 //w -> *Q$vgUse(9 -> saved as trainer
+//m -> Vzs#uU@hiK -> manager 
