@@ -2,8 +2,8 @@ header {
     
     padding: 5px;
     text-align: left;
-    font-size: 20px;
-    color: rgb(14, 13, 13);
+    font-size: x-large;
+    color: rgb(59, 54, 54);
   }
 
 header p{
@@ -42,7 +42,7 @@ input[type=text], select {
   
   input[type=submit] {
     width: 30%;
-    background-color: #4CAF50;
+    background-color:rgb(64, 5, 5);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -55,11 +55,6 @@ input[type=text], select {
     background-color: #45a049;
   }
   
-  div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
   .Container{
     width: 100vw;
     display: flex;
@@ -86,7 +81,7 @@ body {
   }
 
 .button {
-    background-color: #08f110;
+    background-color:rgb(64, 5, 5);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -111,19 +106,30 @@ body {
     width: 50%;
   }
   
-  tr:hover {background-color: rgb(240, 73, 12);
+  tr:hover {background-color: greenyellow;
 }
 *{
   box-sizing: border-box;
 }
 /* Set additional styling options for the columns*/
 .column {
+font-size: x-large;
+color: rgb(59, 54, 54);
 float: left;
 width: 50%;
-background-color:#e79b0d;
 height: 100px;
-}
 
+}
+.column input[type=text] {
+  
+    color: rgb(3, 3, 3);
+    opacity: 0.8;
+    width: 60%;
+    height:460px ;
+    background-size: cover;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 .row:after {
 content: "";
 display: table;
