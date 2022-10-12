@@ -56,7 +56,8 @@ app.use(session({
 }));
 
 const User = require('./models/user')
-const Exercise = require('./models/exercise')
+const Exercise = require('./models/exercise');
+const { db } = require('./models/user');
 
 
 //Routers
@@ -70,7 +71,7 @@ app.use('/customer', customerRouter)
 
 // ****** HOMEPAGE ******
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('startpage')
 });
 
 // ****** JAVASCRIPTFILE: FUNCTIONS ******
@@ -89,3 +90,10 @@ app.get('/functions.js', (req, res, next) => {
     })
 });
 
+// ****** FETCH FROM DB ****** 
+app.get('/exercises_from_db', async (req, res) => {
+    console.log("inside server")
+    const exercises = await Exercise.find({});
+    console.log('Exercise:', {exercises})
+    res.send(JSON.stringify(exercises));  
+});

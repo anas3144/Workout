@@ -10,143 +10,145 @@
 <body>
 	<div class="content">
 		<div class="listOfExercises">
-			<h1>
-				1.Barbell push press (6 reps x 4 sets) <br>
-				2.Goblet squat (6 reps x 4 sets) <br>
-				3.Dumbbell single arm row (6 reps x 4 sets) <br>
-				4.Shoulder lateral raise (6 reps x 4 sets)<br>
-				5.Bench press (6 reps x 4 sets)<br>
-				6.Pull ups/assisted pull ups (6 reps x 4 sets)<br>
-				7.Barbell bicep curls (8 reps x 4 sets)<br>
-			</h1>
-
-			
+            <div id="exercises_to_display"></div>
 		</div>
 		<form action="http://www.google.com/search" method="get" class="sea">
-			<input type="text" placeholder="Search by ID_Number" name="q">
+			<input type="text" placeholder="Search by Username" name="q">
 			<button class="search" type="submit"> Search</button>
 		</form>
-		<div class="add" >
-			<input class="ecersice" type="text" placeholder="ADD Exercise" id = "inputfield_exercise">
+		<div class="add">
+			<input class="exercise" type="text" placeholder="Add exercise" id = "inputfield_exercise">
 			<input class="description" type="text" placeholder="Description" id = "inputfield_description">
 			<button class="sub" onclick="save_exercise_and_description()" type="submit"> Add</button>
 		</div>
 	</div>
-	<!-- test  -->
-	<!-- <script>
-		function out (){
-			console.log("hello word");
-		}
-		
-	</script> -->
+    <script>show_exercises_and_descriptions()</script>
 </body>
+
+</html>
+
 <style>
-	*{
-		margin: 0;
-		padding: 0;
-		position: flex;
-		background: url(picture/gym-600.jpg) no-repeat center/cover;
-	}
-	.content{
-		min-height: 100vh ;
-		background-position: center;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	
-	}
-	.listOfExercises{
-		overflow: scroll;
-		margin-bottom: auto;
-		color: red;
-		/* display: flex; */
-		margin-right:auto;
-		box-sizing: border-box;
-		height: 200px;
-		width: 250px;
-	}
-	.sea{
-		margin-right: 340px;
-		color: green;
-		padding: 10px;
-		width: 100%;
-		max-width: 600px;
-		display: flex;
-		border: 10px solid;
-		border-radius: 50px;
-	}
-	.sea input{
-		flex:1;
-		border: 0;
-		border-radius: 50px;
-		outline:  none;
-		padding: 20px;
-		font-size: 20px;
-		color: red; 
-		text-align: center;
-		
-	}
-	::placeholder{
-		color: antiquewhite;
-	}
-	.search{
-		font-size: 20px;
-		color: white;
-		border-radius: 50px;
-		color: green;
-		padding: 20px;
-	}
-	.add{
-		margin-top: 300px;
-		height: 30px;
-		background-position: center;
-		display: flex;
-		align-items: center;
-		justify-content: center; 
-		border-radius: 50px;
-		position: absolute;
-		
-	}
-	.ecersice{
-		font-size: 20px;
-		width: 100%;
-		height: 40px;
-		justify-content: center;
-		align-items: center;
-		border: 10px solid;
-		border-radius: 50px;
-		color: green;
-		padding: 20px;
-		text-align: center;
-	}
-	.sub{
-		flex:1;
-		border: 0;
-		border-radius: 50px;
-		padding: 20px;
-		font-size: 20px;
-		color: green; 
-		background-color: black;
-	}
-	.description{
-		font-size: 20px;
-		width: 100%;
-		height: 40px;
-		justify-content: center;
-		align-items: center;
-		border: 10px solid;
-		border-radius: 50px;
-		color: green;
-		padding: 20px;
-		text-align: center;
-	}
-	::placeholder{
-		color: red;
-	}
-	.sub:hover{
-		color: red;
-		border-radius: 10px;
-	} 
+    * {
+	margin: 0;
+	padding: 0;
+	position: flex;
+	background: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
+}
+
+.content {
+	min-height: 100vh;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.listOfExercises {
+	overflow: scroll;
+	margin-bottom: auto;
+	color: rgb(0, 0, 0);
+	/* display: flex; */
+	margin-right: auto;
+	box-sizing: border-box;
+	font-size: 14px;
+	height: 200px;
+	width: 300px;
+}
+
+.sea {
+	margin-right: 340px;
+	color: rgb(159, 150, 150);
+	padding: 10px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	border: 10px solid;
+	border-radius: 50px;
+}
+
+.sea input {
+	flex: 1;
+	border: 0;
+	border-radius: 50px;
+	outline: none;
+	padding: 20px;
+	font-size: 20px;
+	color:  rgb(159,150,150);
+	text-align: center;
+
+}
+
+::placeholder {
+	color: antiquewhite;
+}
+
+.search {
+	font-size: 20px;
+	color: white;
+	border-radius: 50px;
+	color: rgb(159,150,150);
+	padding: 20px;
+}
+
+.add {
+	margin-top: 300px;
+	height: 30px;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	position: absolute;
+
+}
+
+.exercise {
+	font-size: 20px;
+	width: 100%;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	border: 10px solid;
+	border-radius: 50px;
+	color: rgb(159, 150, 150);
+	padding: 20px;
+	text-align: center;
+}
+
+.sub {
+	flex: 1;
+	border: 0;
+	border-radius: 50px;
+	padding: 20px;
+	font-size: 20px;
+	color: rgb(159,150,150);
+	background-color: black;
+}
+
+.description {
+	font-size: 20px;
+	width: 100%;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	border: 10px solid;
+	border-radius: 50px;
+	color: rgb(159, 150, 150);
+	padding: 20px;
+	text-align: center;
+}
+
+::placeholder {
+	color: rgb(159,150,150);
+}
+.search:hover{
+	color: red;
+	border-radius: 10px;
+}
+.sub:hover {
+	color: red;
+	border-radius: 10px;
+}
 
 </style>
-</html>

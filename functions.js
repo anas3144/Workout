@@ -26,7 +26,6 @@ function save_user_information(number){
 
 
 // ****** TRAINER PAGE ******
-
 function save_exercise_and_description(){
     //take the value from the input tag
     console.log("inside save funciton")
@@ -45,7 +44,7 @@ function save_exercise_and_description(){
         })
     })
     .then(function (response) {
-        console.log(response);
+        window.location.href = response.url;
     })
     .catch(function (err) {
         console.log('error: ' + err);
@@ -54,27 +53,34 @@ function save_exercise_and_description(){
 
 
 
-//fetch data from json-fil about exercises 
+//fetch data from db
 function show_exercises_and_descriptions(){
-    fetch('exercises_from_json')
+    console.log("inside show exercises")
+    fetch('http://localhost:3000/exercises_from_db', {
+        method: 'GET',   
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })       
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
+        console.log("back in function")
+        console.log(data)
         append_data(data);
     
     })
     .catch(function (err) {
-        console.log('error: ' + err);
     });
 }
 
-//show data about exercises
+//show data about exercises on html page
 function append_data(data) {
     var container = document.getElementById("exercises_to_display");
     for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
-        div.innerHTML = 'Exercise: ' + data[i].exercisename+ ' ' + 'Description:' + data[i].description;
+        div.innerHTML = 'Exercise: ' + data[i].name+ ' ' + 'Description:' + data[i].description;
         container.appendChild(div);
     }
 }
@@ -116,8 +122,28 @@ function check_validation(){
 
 
 
+// ****** CUSTOMER ******
 
-
-
+function save_comment(){
+    console.log("inside save_comment funciton")
+    var comment = document.getElementById("inputfield_comment").value;
+    fetch('http://localhost:3000/customer/save_comment', {
+        method: 'POST',
+        //tells that we are passing json
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        //pass the data, fetchfunction do need the body to be stringify
+        body: JSON.stringify({
+            comment: comment
+        })
+    })
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
 
 

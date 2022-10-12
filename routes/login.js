@@ -10,10 +10,10 @@ router.get('/', (req, res) => {
         if(req.session.usertype === 'c'){
             res.redirect('../customer')
         }
-        else if(req.session.username === 't'){
+        else if(req.session.usertype === 't'){
             res.redirect('../trainer')
         }
-        else if(req.session.username === 'm'){
+        else if(req.session.usertype === 'm'){
             res.redirect('../manager')
         }
         else{
@@ -35,6 +35,7 @@ router.post('/check_validation', async (req, res) => {
         validpassword = await bcrypt.compare(req.body.password, user.password)
         if(validpassword === true){
             req.session.isAuth = true;
+            req.session.username = user.username; 
             req.session.usertype = user.usertype;
             console.log(req.session);
             if(user.usertype === 'c'){

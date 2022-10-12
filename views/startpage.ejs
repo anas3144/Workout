@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="start-page.css"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <div class="container">
+        <div class="centerBox">
+            <div class="img-gym">   </div> 
+                <!--<h>centerBox</h>-->
+        </div>
+
+        <div class="login-wrapper">
+            <!--<img class="img-gym" src="start-page-copy.jpg" alt="gym-pic">
+            <div class="img-gym">   </div>-->
+            <form method="GET" action="login">
+                <button class="login">Login</button>
+            </form>
+            <!--<button id="submit">Login</button>-->
+        </div>
+
+        <div class="info-wrapper">
+            <h1>XPERT</h1>
+            <p>Taking your training to the next level</p>
+            <p1>Opening hours<br></p1>
+            <p2>Monday - Sunday:</p2>
+            <p3>06 - 21<br><br></p3>
+            <p4>Email: Contact@xpert.com</p4>
+        </div>
+    </div>          
+    
+</body>
+</html>
+
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(3, 3, 3);
+    font-family: Rajdhani;
+    /*background-image: url('start-page-copy.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+.container{
+    position: relative;
+    text-align: center;
+    background-color: rgb(21, 20, 20);
+    box-shadow: 10px 10px 5px black;
+    
+}
+
+.centerBox{
+    background: black;
+    color:rgb(4, 4, 4);
+    height: 550px;
+    box-shadow: 10px 10px 5px rgb(18, 15, 15);
+}
+
+
+.login-wrapper .login{
+    display: inline-block;
+    background-color: rgb(64, 5, 5);
+    border: 4px double #ccc;
+    color: rgb(159, 150, 150);
+    font-size: 20px;
+    padding: 20px;
+    width: 180px;
+    transition: all 0.5s;
+    margin: 25px;
+}
+
+
+
+.info-wrapper{
+    background:black;
+    height: 200px;
+    box-shadow: 10px 10px 5px black;
+    color: rgb(155, 140, 140);
+    
+
+}
+
+
+.img-gym{
+    width: 1200px;
+    height: 900px;
+    display: block;
+    margin: 0px auto;
+    background-image: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg');
+    box-shadow: 5px 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 5px black;
+}
+</style>
