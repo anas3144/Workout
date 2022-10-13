@@ -19,7 +19,7 @@ router.get('/', isAuthManager, (req, res) => {
 })
 
 // '/manager/save_user'
-router.post('/save_user', isAuthManager, async (req, res) => {
+router.post('/save_user', async (req, res) => {
     console.log("inside saveuser")
     var password = generate_password()
     var hashpassword = ""

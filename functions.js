@@ -4,6 +4,8 @@
 function save_user_information(number){
     var username = document.getElementById("inputfield_username").value;
     var usertype = number;
+    console.log(username)
+    console.log(usertype)
     fetch('http://localhost:3000/manager/save_user', {
         method: 'POST',
         //tells that we are passing json
@@ -87,6 +89,39 @@ function append_data(data) {
 
 
 
+// for searching a particuler user
+function sendUser_data(){
+    //take the value from the input tag
+    console.log("inside search funciton")
+    const input_username = document.getElementById("inputfield_search").value;
+    console.log(input_username);
+    fetch('http://localhost:3000/trainer/getuser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: input_username
+        })
+    })
+    .then(function (response) {
+        window.location.href = response.url;
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123,7 +158,6 @@ function check_validation(){
 
 
 // ****** CUSTOMER ******
-
 function save_comment(){
     console.log("inside save_comment funciton")
     var comment = document.getElementById("inputfield_comment").value;
@@ -139,6 +173,7 @@ function save_comment(){
         })
     })
     .then(function (response) {
+        window.location.href = response.url;
         console.log(response);
     })
     .catch(function (err) {
@@ -146,4 +181,33 @@ function save_comment(){
     });
 }
 
+//SHOW COMMENTS ON THE CUSTOMER PAGE 
+function show_comments(){
+    console.log("inside show_comments")
+    fetch('http://localhost:3000/customer/comments_from_db', {
+        method: 'GET',   
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })       
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("back in function")
+        console.log(data)
+        append_comments(data);
+    
+    })
+    .catch(function (err) {
+    });
+}
 
+function append_comments(data) {
+    var container = document.getElementById("comments_to_display");
+    for (var i = 0; i < data.length; i++) {
+        var div = document.createElement("div");
+        div.innerHTML = data[i];
+        container.appendChild(div);
+    }
+}

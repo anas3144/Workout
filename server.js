@@ -58,6 +58,7 @@ app.use(session({
 const User = require('./models/user')
 const Exercise = require('./models/exercise');
 const { db } = require('./models/user');
+const { cp } = require('fs');
 
 
 //Routers
@@ -97,3 +98,8 @@ app.get('/exercises_from_db', async (req, res) => {
     console.log('Exercise:', {exercises})
     res.send(JSON.stringify(exercises));  
 });
+
+
+app.get('/setup', (req, res) => {
+    res.render('setup')
+})

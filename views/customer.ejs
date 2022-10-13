@@ -4,162 +4,252 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer</title>
-    <link rel="stylesheet" href="style_customer.css"/>
-</head>
-<body>
-    customer page
-    <input class="comment" type="text" placeholder="add comment" id = "inputfield_comment">
-    <button class="sub" onclick="save_comment()" type="submit"> Add</button>
+    <title>Schedule</title>
+    <script src="functions.js"></script>
 
+</head>
+
+
+<body>
     <div class="container">
-        <div class="calendar">
-            <div class="month">
-                <div class="date">
-                    <h1>September</h1>
-                    <p>Fri Sep 30, 2022</p>
+        <div class="middleBox">Middlebox</div>
+        <div class="boxOne">
+            <div class="exercise-catalog">
+                <div>Exercise Catalog</div>
+                <div id="exercises_to_display"></div>
+            </div> 
+        </div>
+        
+        <div class="boxTwo">
+            <div class="commentBox">   
+                <div>Comment Box</div>
+                    <input type="text" id="inputfield_comment" placeholder="Enter-comment">
+                    <button id="comment" onclick="save_comment()">Submit</button>
+                    <div id="comments_to_display"></div>
+            </div>  
+        </div>
+        <div class="boxThree">
+            <div class="calendar">
+                <div class="month">
+                    <i class="fas fa-angle-left prev"></i>
+                    <div class="date">
+                        <h1>October 2022</h1>
+                        <p>Thu Oct 13, 2022</p>
+                    </div>
+                    <i class="fas fa-angle-right next"></i>
                 </div>
-            </div>
-            <div class="weekdays">
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-                <div>Sun</div>
-            </div>
-            <div class="days">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-                <div>19</div>
-                <div>20</div>
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-                <div class="today">30</div>
-                <div>31</div>
+
+                <div class="weekdays">
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                </div>
+                <div class="days">
+                    <div class="prev-date">26</div> 
+                    <div class="prev-date">27</div> 
+                    <div class="prev-date">28</div> 
+                    <div class="prev-date">29</div> 
+                    <div class="prev-date">30</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div class="today">13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                    <div>21</div>
+                    <div>22</div>
+                    <div>23</div>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                    <div>31</div>  
+                    <div class="next-date">1</div>
+                    <div class="next-date">2</div>
+                    <div class="next-date">3</div>
+                    <div class="next-date">4</div>
+                </div>
             </div>
         </div>
     </div>
+    <script>show_comments()</script>
+    <script>show_exercises_and_descriptions()</script>
 </body>
 </html>
 
-
 <style>
-    *{
+    body{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
 }
-
-html{
-    font-size: 50%;
-}
-
-.container{
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
-    color: rgb(7, 7, 7);
-    display: flex;
-    justify-content: center;
+.middleBox{
+    background-color: black;
+    position: relative;
+    width: calc(150px - 30px);
+    height: calc(150px - 30px);
+    text-align: center;
     align-items: center;
 }
-
-.calendar{
-    width: 40rem;
-    height: 50rem;
-    background-color: rgb(189, 174, 174);
+.container{
+    position: relative;
+    text-align: center;
+    align-items: center;
 }
-
-.month{
+.boxOne{
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(400px - 30px);
+    background: rgb(249, 247, 247);
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0.6;
+}
+.boxTwo{
+    position: relative;
+    width: calc(403px - 30px);
+    height: calc(400px - 30px);
+    background: rgb(252, 250, 250);
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0.6;
+}
+.boxThree{
+    position: relative;
+    width: calc(460px - 30px);
+    height: calc(400px - 30px);
+    background: rgb(241, 238, 238);
+    float: right;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0.6;
+}
+.exercise-catalog{
+    font-size: x-large;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+.commentBox{
+    font-size: x-large;
+    font-weight: bold;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 7rem;
-    background-color: rgb(202, 183, 183);
+    height: 100%;
+    /*background:rgb(177, 133, 133);*/
+    transition: 0.5s;
+    z-index: 2;
+}
+.schedule-box{
+    font-size: x-large;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background:rgb(84, 37, 37);*/
+    transition: 0.5s;
+    z-index: 3;
+}
+.month {   
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(205, 205, 205);
     display: flex;
     justify-content: space-between;
-    align-items: center;    
-    padding: 0 10rem;   
+    align-items: center;
     text-align: center;
+  
 }
-
+.month i {
+    font-size: x-large;
+    cursor: pointer;
+    color: black;
+}
 .month h1{
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: x-large;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    margin-bottom: 0.9rem;
+    letter-spacing: 0.09rem;
+    margin-bottom: 0rem;
+    color: black;
 }
-
 .month p{
-    font-size: 1.5;
+    font-size: 1rem;
+    color: black;
 }
-
 .weekdays{
     width: 100%;
-    height: 10rem;
-    padding: 0.2rem;
+    height: 4.5rem;
+    padding: 0 0.4rem;
     display: flex;
     align-items: center;
 }
-
-.weekdays div{
-    font-size: 2rem;
-    font-weight: 20;
-    letter-spacing: 0.1rem;
-    width: calc(39rem / 7);
+.weekdays div {
+    font-size: 1rem;
+    font-weight: 1000;
+    letter-spacing: rem; 
+    width: calc(26.6rem / 7);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .days{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 0.9rem;
+    padding: 0.001rem;
 }
-
 .days div{
-    font-size: 1.7rem;
-    margin: 0.79rem;
-    width: calc(27rem/7);
-    height: 5rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+    width: calc(19.7rem/7);
+    height: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: top;
+    /*text-shadow: 0 0.6rem 0.2rem rgba(72, 68, 68, 0.5);*/
     transition: background-color 0.5s;
 }
-
 .days div:hover:not(.today){
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(64, 5, 5);
+    border: 0.001rem solid rgba(115, 110, 110, 0.5);
     cursor: pointer;
 }
-
+.prev-date,
+.next-date{
+    opacity: 0.5;
+}
 .today{
-    background-color: rgb(208, 181, 181);
+    background-color: rgba(65, 63, 63, 0.251);
 }
 </style>

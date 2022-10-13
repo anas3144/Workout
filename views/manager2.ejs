@@ -9,47 +9,49 @@
     </header>
     
    
-    <head>    
+    <head>
         <script src="functions.js"></script>
     </head>
 <body>
 
     <form action="/action_page.php">
-      <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
+      <input type="text" id="inputfield_username" name="firstname" placeholder="Enter name...">
       <br>
+     <input type="button" class="button" value="Add as customer">
      <button type="button" onclick="save_user_information('c')">save as customer</button>
      <br>
+     <input type="button" class="button" value="Add as trainer">
      <button type="button" onclick="save_user_information('t')">save as trainer</button>
     </form>
      <br>
      <html>
  
-
+    <div class="row">
         <div class="column">
-            <div class="boxOne">
-              <div class="exercise-catalog">
-                  <div>Exercise Catalog</div>
-                  <div id="exercises_to_display"></div>
-              </div> 
-          </div>
-            <!-- <input type="text"id="ex" name="exer"value="more about..."> -->
-            
+            <h2>Exercises</h2>
+            <br><br>
+            <input type="text"id="ex" name="exer"value="more about...">
+            <div id="exercises_to_display"></div>
         </div>
-        <script>show_exercises_and_descriptions()</script>
-
+        <div class="column">
+           
+            <h2>Description</h2> 
+            <br><br>
+        
+            <input type="text"id="ex" name="exer"value="more about...">
+        </div>
     </div>
+    <script>show_exercises_and_descriptions()</script>
  </body>
 </html>
-     
-        
 
 <style>
-header {
+    header {
     
     padding: 5px;
     text-align: left;
-    font-size: x-large;
-    color: rgb(59, 54, 54);
+    font-size: 20px;
+    color: rgb(14, 13, 13);
   }
 
 header p{
@@ -88,7 +90,7 @@ input[type=text], select {
   
   input[type=submit] {
     width: 30%;
-    background-color:rgb(64, 5, 5);
+    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -101,6 +103,11 @@ input[type=text], select {
     background-color: #45a049;
   }
   
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
   .Container{
     width: 100vw;
     display: flex;
@@ -127,7 +134,7 @@ body {
   }
 
 .button {
-    background-color:rgb(64, 5, 5);
+    background-color: #08f110;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -152,46 +159,24 @@ body {
     width: 50%;
   }
   
-  tr:hover {background-color: greenyellow;
+  tr:hover {background-color: rgb(240, 73, 12);
 }
 *{
   box-sizing: border-box;
 }
 /* Set additional styling options for the columns*/
 .column {
-font-size: x-large;
-color: rgb(59, 54, 54);
 float: left;
 width: 50%;
+background-color:#e79b0d;
 height: 100px;
-
 }
-.column input[type=text] {
-  
-    color: rgb(3, 3, 3);
-    opacity: 0.8;
-    width: 60%;
-    height:460px ;
-    background-size: cover;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+
 .row:after {
 content: "";
 display: table;
 clear: both;
 background-color:#d1a996;
 }
-
-.boxOne{
-    position: relative;
-    width: calc(400px - 30px);
-    height: calc(400px - 30px);
-    background: rgb(249, 247, 247);
-    float: left;
-    margin: 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    opacity: 0.6;
-}
 </style>
+        
