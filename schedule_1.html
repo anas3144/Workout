@@ -64,7 +64,14 @@
 </head>
 
 <body>
-
+	<div class="boxTwo">
+		<div class="commentBox">
+			<div>Comment Box</div>
+				<input type="text" id="inputfield_comment" placeholder="Enter-comment">
+				<button id="comment" onclick="save_comment()">Submit</button>
+				<div id="comments_to_display"></div>
+		</div>
+	</div>
 	<div id="content">
 		<div id="header">
 			<div id="display"></div>
@@ -86,7 +93,7 @@
 
 
 	<div id="boxForm">
-		<h1>Write what do you want</h1>
+		<h1>Write what do you want. Dont forget rest time</h1>
 		<input type="text" id="Eventinput" placeholder="Enter your text">
 		<button id="saveButton"> Save</button>
 		<button id="cancelButton">cancel</button>
@@ -98,10 +105,10 @@
 		<button id="deleteButton">Delete</button>
 		<button id="closeButton">Close</button>
 	</div>
-	<!-- <div id="form_of_box"></div> -->
 	
 	<div class="listOfExercises">
-	<h1>
+		<div>ExerciseBox</div>
+		<h1>
 		<input type="text"id="ex" name="list"value="more about...">
 			<!-- 1.Barbell push press (6 reps x 4 sets) <br>
 			2.Goblet squat (6 reps x 4 sets) <br>
