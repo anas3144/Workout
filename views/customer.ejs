@@ -1,255 +1,256 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
-    <script src="functions.js"></script>
+    <link rel="stylesheet" href="schedule.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="monthDisplay"></div>  -->
+<!-- <div>
+          <button id="backButton">Back</button>
+          <button id="nextButton">Next</button>
+        </div> -->
+<!-- </div> -->
+<!-- </div> 
+      <div id="days">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div> 
+      <div id="cal"></div>
+	</div> -->
 
+<!-- <<div id="newEventModal">
+      <h2>New Event</h2>
+      <input id="eventTitleInput" placeholder="Event Title" />
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+    <div id="deleteEventModal">
+      <h2>Event</h2>
+      <p id="eventText"></p>
+      <button id="deleteButton">Delete</button>
+      <button id="closeButton">Close</button>
+    </div>
+    <div id="modalBackDrop"></div> -->
+
+<!-- <script src="./schedule.js"></script>
+  </body>
+</html>   -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Schedule</title>
+	<script src="functions.js"></script>
+	
 </head>
 
-
 <body>
-    <div class="container">
-        <div class="middleBox">Middlebox</div>
-        <div class="boxOne">
-            <div class="exercise-catalog">
-                <div>Exercise Catalog</div>
-                <div id="exercises_to_display"></div>
-            </div> 
-        </div>
-        
-        <div class="boxTwo">
-            <div class="commentBox">   
-                <div>Comment Box</div>
-                    <input type="text" id="inputfield_comment" placeholder="Enter-comment">
-                    <button id="comment" onclick="save_comment()">Submit</button>
-                    <div id="comments_to_display"></div>
-            </div>  
-        </div>
-        <div class="boxThree">
-            <div class="calendar">
-                <div class="month">
-                    <i class="fas fa-angle-left prev"></i>
-                    <div class="date">
-                        <h1>October 2022</h1>
-                        <p>Thu Oct 13, 2022</p>
-                    </div>
-                    <i class="fas fa-angle-right next"></i>
-                </div>
+	<button type="button" onclick="kill_session()">log out</button>
+	<div class="boxTwo">
+		<div class="commentBox">
+			<div>Comment Box</div>
+				<input type="text" id="inputfield_comment" placeholder="Enter-comment">
+				<button id="comment" onclick="save_comment()">Submit</button>
+				<div id="comments_to_display"></div>
+		</div>
+	</div>
+	<div id="content">
+		<div id="header">
+			<div id="display"></div>
+			<button id="back"> Previous_Month</button>
+			<button id="next"> Next_Month</button>
+		</div>
+		<div id="days">
+			<div>Sunday</div>
+			<div>Monday</div>
+			<div>Tuesday</div>
+			<div>wednesday</div>
+			<div>Thursday</div>
+			<div>Friday</div>
+			<div>Saturday</div>
+		</div>
 
-                <div class="weekdays">
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                    <div>Sun</div>
-                </div>
-                <div class="days">
-                    <div class="prev-date">26</div> 
-                    <div class="prev-date">27</div> 
-                    <div class="prev-date">28</div> 
-                    <div class="prev-date">29</div> 
-                    <div class="prev-date">30</div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                    <div>10</div>
-                    <div>11</div>
-                    <div>12</div>
-                    <div class="today">13</div>
-                    <div>14</div>
-                    <div>15</div>
-                    <div>16</div>
-                    <div>17</div>
-                    <div>18</div>
-                    <div>19</div>
-                    <div>20</div>
-                    <div>21</div>
-                    <div>22</div>
-                    <div>23</div>
-                    <div>24</div>
-                    <div>25</div>
-                    <div>26</div>
-                    <div>27</div>
-                    <div>28</div>
-                    <div>29</div>
-                    <div>30</div>
-                    <div>31</div>  
-                    <div class="next-date">1</div>
-                    <div class="next-date">2</div>
-                    <div class="next-date">3</div>
-                    <div class="next-date">4</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>show_comments()</script>
+		<div id="calendar"></div>
+	</div>
+
+
+	<div id="boxForm">
+		<h1>Write what do you want. Dont forget rest time</h1>
+		<input type="text" id="Eventinput" placeholder="Enter your text">
+		<button id="saveButton"> Save</button>
+		<button id="cancelButton">cancel</button>
+	</div>
+	
+	<div id="Delete_Event">
+		<h2>Event</h2>
+		<p id="DeleteEventText"></p>
+		<button id="deleteButton">Delete</button>
+		<button id="closeButton">Close</button>
+	</div>
+	
+	<div class="listOfExercises">
+		<div>ExerciseBox</div>
+		<h1>
+		<!-- <input type="text"id="ex" name="list"value="more about..."> -->
+		<div id="exercises_to_display"></div>
+
+		</h1>
+
+	</div>
+	<script src="schedule.js"></script>
+	<script>show_comments()</script>
     <script>show_exercises_and_descriptions()</script>
+
 </body>
+
 </html>
 
 <style>
     body{
-    margin: 0;
-    padding: 0;
-    background-color: rgb(0, 0, 0);
+	display: flex;
+	background: url(picture/gym-600.jpg) no-repeat center/cover;
+	height: 100vh;
+	/* margin: 20px; */
+	/* margin-top: 50px; */
+	/* top: 50px; */
+	margin: 50px;
+	justify-content: center;
 }
-.middleBox{
-    background-color: black;
-    position: relative;
-    width: calc(150px - 30px);
-    height: calc(150px - 30px);
-    text-align: center;
-    align-items: center;
+
+/* button {
+	width: 75px;
+	cursor: pointer;
+	box-shadow: 0px 0px 2px gray;
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+  } */
+#content{
+	width: 770px;
 }
-.container{
-    position: relative;
-    text-align: center;
-    align-items: center;
+.day{
+	width: 100px;
+	padding: 5px;
+	height: 80px;
+	cursor: pointer;
+	box-sizing: border-box;
+	/* background-color: white; */
+	margin: 5px;
+	box-shadow: 0px 0px 3px darkblue;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+} 
+.event {
+	font-size: 15px;
+	padding: 3px;
+	background-color: #58bae4;
+	/* color: white; */
+	border-radius: 10px;
+	max-height: 55px;
+	overflow: hidden;
 }
-.boxOne{
-    position: relative;
-    width: calc(400px - 30px);
-    height: calc(400px - 30px);
-    background: rgb(249, 247, 247);
-    float: left;
-    margin: 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    opacity: 0.6;
+.padding{
+	box-shadow: none;
 }
-.boxTwo{
-    position: relative;
-    width: calc(403px - 30px);
-    height: calc(400px - 30px);
-    background: rgb(252, 250, 250);
-    float: left;
-    margin: 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    opacity: 0.6;
+
+#boxForm, #Delete_Event{
+	display: none;
+	/* z-index: 20; */
+	padding: 10px;
+	background: linear-gradient(130deg, brown, purple);
+	/* box-shadow: 0px 0px 3px black; */
+	border-radius: 20px;
+	width: 300px;
+	top: 100px;
+	/* left: calc(50% - 175px); */
+	position: absolute;
+	/* font-family: sans-serif; */
+  }
+  #Eventinput {
+	padding: 15px;
+	width: 100%;
+	/* box-sizing: border-box; */
+	margin-bottom: 20px;
+	border-radius: 10px;
+	/* outline: none; */
+	/* border: none; */
+	/* box-shadow: 0px 0px 3px gray; */
+  }
+  /* #input.error {
+	border: 2px solid red;
+  } */
+  #cancelButton, #deleteButton{
+	background-color: lightgreen
+  }
+  #saveButton, #closeButton {
+	background-color: lightgreen;
+  }
+  #form_of_box {
+	display: none;
+	top: 0px;
+	/* left: 0px; */
+	/* z-index: 10; */
+	width: 100vw;
+	height: 100vh;
+	/* position: absolute; */
+	/* background-color: rgba(0,0,0,0.7); */
+  }
+
+
+#days{
+	width: 100%;
+	display: flex;
 }
-.boxThree{
-    position: relative;
-    width: calc(460px - 30px);
-    height: calc(400px - 30px);
-    background: rgb(241, 238, 238);
-    float: right;
-    margin: 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    opacity: 0.6;
+#days div{
+	/* margin: 10px;
+	position: flex;
+	display: inline-block; */
+	width: 100px;
+	padding: 10px;
+	/* justify-content: space-between; */
+	/* text-align: center; */
+} 
+
+#calendar{ 
+	width: 100%;
+	/* margin: auto; */
+	display: flex;
+	flex-wrap: wrap;
 }
-.exercise-catalog{
-    font-size: x-large;
-    font-weight: bold;
-    top: 0;
-    left: 0;
-    transition: 0.5s;
-    z-index: 1;
-}
-.commentBox{
-    font-size: x-large;
-    font-weight: bold;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background:rgb(177, 133, 133);*/
-    transition: 0.5s;
-    z-index: 2;
-}
-.schedule-box{
-    font-size: x-large;
-    font-weight: bold;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background:rgb(84, 37, 37);*/
-    transition: 0.5s;
-    z-index: 3;
-}
-.month {   
-    width: 100%;
-    height: 4rem;
-    background-color: rgb(205, 205, 205);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+
+
   
+.day:hover {
+	background-color: lightcoral;
 }
-.month i {
-    font-size: x-large;
-    cursor: pointer;
-    color: black;
+.listOfExercises{
+	margin-left: 50px;
+	margin-top: 50px;
+	overflow: scroll;
+	margin-bottom: auto;
+	color: darkgreen;
+	margin-right:auto;
+	box-sizing: border-box;
+	height: 200px;
+	width: 250px;
 }
-.month h1{
-    font-size: x-large;
-    text-transform: uppercase;
-    letter-spacing: 0.09rem;
-    margin-bottom: 0rem;
-    color: black;
-}
-.month p{
-    font-size: 1rem;
-    color: black;
-}
-.weekdays{
-    width: 100%;
-    height: 4.5rem;
-    padding: 0 0.4rem;
-    display: flex;
-    align-items: center;
-}
-.weekdays div {
-    font-size: 1rem;
-    font-weight: 1000;
-    letter-spacing: rem; 
-    width: calc(26.6rem / 7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.days{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.001rem;
-}
-.days div{
-    font-size: 1rem;
-    margin: 0.5rem;
-    width: calc(19.7rem/7);
-    height: 1.4rem;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    /*text-shadow: 0 0.6rem 0.2rem rgba(72, 68, 68, 0.5);*/
-    transition: background-color 0.5s;
-}
-.days div:hover:not(.today){
-    background-color: rgb(64, 5, 5);
-    border: 0.001rem solid rgba(115, 110, 110, 0.5);
-    cursor: pointer;
-}
-.prev-date,
-.next-date{
-    opacity: 0.5;
-}
-.today{
-    background-color: rgba(65, 63, 63, 0.251);
-}
+
+
 </style>

@@ -127,7 +127,7 @@ function sendUser_data(){
 
 
 
-// ****** LOGIN ******
+// ****** LOGIN/LOGOUT ******
 function check_validation(){
     let input_username = document.getElementById("inputfield_username").value
     let input_password = document.getElementById("inputfield_password").value
@@ -152,6 +152,23 @@ function check_validation(){
         console.log('error: ' + err);
     });
 }
+
+function kill_session(){
+    console.log("inside killsession")
+    fetch('http://localhost:3000/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(function (response) {
+        window.location.href = response.url;
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
+
 
 
 

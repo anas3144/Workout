@@ -91,6 +91,21 @@ app.get('/functions.js', (req, res, next) => {
     })
 });
 
+app.get('/schedule.js', (req, res, next) => {
+    var options = {
+        root: path.join(__dirname)
+    }
+    var fileName = "schedule.js";
+    res.sendFile(fileName, options, function (err){
+        if (err){
+            next(err);
+        }
+        else{
+            console.log("Sent:", fileName);
+        }
+    })
+});
+
 // ****** FETCH FROM DB ****** 
 app.get('/exercises_from_db', async (req, res) => {
     console.log("inside server")
@@ -99,6 +114,11 @@ app.get('/exercises_from_db', async (req, res) => {
     res.send(JSON.stringify(exercises));  
 });
 
+app.get('/logout', (req, res) => {
+    req.session.destroy(); 
+    return res.redirect('/')
+    
+})
 
 app.get('/setup', (req, res) => {
     res.render('setup')
