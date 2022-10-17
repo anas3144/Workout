@@ -81,23 +81,29 @@ function append_data(data) {
 }
 
 // for searching a particuler user
-function sendUser_data(){
-    const input_username = document.getElementById("inputfield_search").value;
-    console.log(input_username);
-    fetch('http://localhost:3000/trainer/getuser', {
+function getUsername(userName, done){
+    console.log("inside get username funciton")
+    const inputusername = document.getElementById("inputfield_search").value;
+    console.log(inputusername);
+    fetch('http://localhost:3000/trainer/search', {  //?username=${username}
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: input_username
-        })
+            username : inputusername
+
+         })
     })
     .then(function (response) {
+        //return response.json();
         window.location.href = response.url;
     })
+    .then(function (data) {
+        console.log("back in function")
+        console.log(data)
+    })
     .catch(function (err) {
-        console.log('error: ' + err);
     });
 }
 

@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('./../models/user')
 
 const isAuthCustomer = function (req, res, next) {
-    if (req.session.isAuth && (req.session.usertype === 'c')) {
+    if (req.session.isAuth && (req.session.usertype === 'c' || req.session.usertype === 't')) {
         next()
     }
     else {
