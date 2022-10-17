@@ -12,7 +12,7 @@ app.listen(port, () => console.log('listening on port:', port));
 
 
 app.use(express.json())
-app.set('views', path.join(__dirname, 'views')); //new
+app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: false}))
 
@@ -49,7 +49,7 @@ const store = new MongoDBSession({
 
 //Sessions - set the session to our req-object
 app.use(session({
-    secret: 'hej',
+    secret: ' ',
     saveUninitialized: false,
     resave: false,
     store: store,
@@ -59,7 +59,6 @@ const User = require('./models/user')
 const Exercise = require('./models/exercise');
 const { db } = require('./models/user');
 const { cp } = require('fs');
-
 
 //Routers
 app.use('/login', loginRouter)

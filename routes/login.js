@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
     }
 })
 
+//check if the user have right password
 router.post('/check_validation', async (req, res) => {
     console.log("inside login server")
     const user = await User.findOne({ username: req.body.username})
@@ -63,9 +64,3 @@ router.post('/check_validation', async (req, res) => {
 })
 
 module.exports = router
-
-
-//for test
-//q -> yYh8m9XiSJ -> saved as customer
-//w -> *Q$vgUse(9 -> saved as trainer
-//m -> Vzs#uU@hiK -> manager 

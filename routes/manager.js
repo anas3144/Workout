@@ -55,12 +55,4 @@ function generate_password(){
     return password;  
 }
 
-
-
 module.exports = router
-
-
-//for test
-//q -> yYh8m9XiSJ -> saved as customer
-//w -> *Q$vgUse(9 -> saved as trainer
-//m -> Vzs#uU@hiK -> manager 

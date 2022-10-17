@@ -16,6 +16,7 @@ router.get('/', isAuthTrainer, (req, res) => {
     res.render('trainer')
 })
 
+//adds an exercise and description to the database
 router.post('/addexercise', isAuthTrainer, async (req, res) => {
     console.log("inside addexercises")
     const exercise = new Exercise({
