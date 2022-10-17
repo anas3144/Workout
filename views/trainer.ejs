@@ -15,10 +15,10 @@
 		</div>
 
 		<div>
-		<form>
-		<input class="search" type="text" placeholder="Search by username" id="inputfield_search">
-        <button class="search" onclick="sendUser_data()" type="submit"> Search</button> 
-		</form>
+			<form class="search" action="/search" method="get">
+                <input class="bar" type="text" placeholder="Search by username" id="inputfield_search">
+                <button onclick="getUsername()" type="button">Search</button>
+            </form>
 		</div>
 		<div class="add">
 			<input class="exercise" type="text" placeholder="Add exercise" id = "inputfield_exercise">
