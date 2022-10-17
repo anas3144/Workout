@@ -1,0 +1,20 @@
+{
+  "exercises": [],
+  "users": [
+    {
+      "username": "annika",
+      "password": "WrKUMcIzD)",
+      "usertype": 0
+    },
+    {
+      "username": "lumi",
+      "password": "Ih7Jd2hag$",
+      "usertype": 1
+    },
+    {
+      "username": "marre",
+      "password": "B0m4vrv5Pq",
+      "usertype": 0
+    }
+  ]
+}

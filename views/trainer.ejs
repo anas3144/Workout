@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trainer page</title>
+    <script src="functions.js"></script>
+</head>
+<body>
+	<button type="button" onclick="kill_session()">log out</button>
+	<div class="content">
+		<div class="listOfExercises">
+            <div id="exercises_to_display"></div>
+		</div>
+
+		<div>
+		<form>
+		<input class="search" type="text" placeholder="Search by username" id="inputfield_search">
+        <button class="search" onclick="sendUser_data()" type="submit"> Search</button> 
+		</form>
+		</div>
+		<div class="add">
+			<input class="exercise" type="text" placeholder="Add exercise" id = "inputfield_exercise">
+			<input class="description" type="text" placeholder="Description" id = "inputfield_description">
+			<button class="sub" onclick="save_exercise_and_description()" type="submit"> Add</button>
+		</div>
+	</div>
+    <script>show_exercises_and_descriptions()</script>
+</body>
+
+</html>
+
+<style>
+  * {
+	margin: 0;
+	padding: 0;
+	position: flex;
+}
+
+.content {
+	background: url(picture/gym-600.jpg) no-repeat center/cover;
+	min-height: 100vh;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.listOfExercises {
+	overflow: scroll;
+	margin-bottom: auto;
+	color: rgb(0, 0, 0);
+	background-color:  white;
+	opacity: 0.8;
+	/* display: flex no-repeat cover/cover; */
+	margin-right: auto;
+	box-sizing: border-box;
+	font-size: 14px;
+	height: 200px;
+	width: 300px;
+}
+
+.sea {
+	margin-right: 340px;
+	color: rgb(159, 150, 150);
+	padding: 10px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	border: 10px solid;
+	border-radius: 50px;
+}
+
+.sea input {
+	flex: 1;
+	border: 0;
+	border-radius: 50px;
+	outline: none;
+	padding: 20px;
+	font-size: 20px;
+	color:  rgb(159,150,150);
+	text-align: center;
+
+}
+
+::placeholder {
+	color: antiquewhite;
+}
+
+.search {
+	font-size: 20px;
+	color: white;
+	border-radius: 50px;
+	color: rgb(159,150,150);
+	padding: 20px;
+	background-color: rgb(64, 5, 5);;
+}
+
+.add {
+	margin-top: 300px;
+	height: 30px;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	position: absolute;
+
+}
+
+.ecersice {
+	font-size: 20px;
+	width: 100%;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	border: 10px solid;
+	border-radius: 50px;
+	color: rgb(159, 150, 150);
+	padding: 20px;
+	text-align: center;
+}
+
+.sub {
+	flex: 1;
+	border: 0;
+	border-radius: 50px;
+	padding: 20px;
+	font-size: 20px;
+	color: rgb(159,150,150);
+	background-color: rgb(64, 5, 5);;
+}
+
+.description {
+	font-size: 20px;
+	width: 100%;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	border: 10px solid;
+	border-radius: 50px;
+	color: rgb(159, 150, 150);
+	padding: 20px;
+	text-align: center;
+}
+
+::placeholder {
+	color: rgb(159,150,150);
+}
+.search:hover{
+	color: red;
+	border-radius: 10px;
+}
+.sub:hover {
+	color: red;
+	border-radius: 10px;
+}
+</style>

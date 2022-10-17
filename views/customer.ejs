@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Schedule</title>
+	<script src="functions.js"></script>
+	
+</head>
+
+<body>
+	<button type="button" onclick="kill_session()">log out</button>
+	<div class="boxTwo">
+		<div class="commentBox">
+			<div>Comment Box</div>
+				<input type="text" id="inputfield_comment" placeholder="Enter-comment">
+				<button id="comment" onclick="save_comment()">Submit</button>
+				<div id="comments_to_display"></div>
+		</div>
+	</div>
+	<div id="content">
+		<div id="header">
+			<div id="display"></div>
+			<button id="back"> Previous_Month</button>
+			<button id="next"> Next_Month</button>
+		</div>
+		<div id="days">
+			<div>Sunday</div>
+			<div>Monday</div>
+			<div>Tuesday</div>
+			<div>wednesday</div>
+			<div>Thursday</div>
+			<div>Friday</div>
+			<div>Saturday</div>
+		</div>
+
+		<div id="calendar"></div>
+	</div>
+
+
+	<div id="boxForm">
+		<h1>Write what do you want. Dont forget rest time</h1>
+		<input type="text" id="Eventinput" placeholder="Enter your text">
+		<button id="saveButton"> Save</button>
+		<button id="cancelButton">cancel</button>
+	</div>
+	
+	<div id="Delete_Event">
+		<h2>Event</h2>
+		<p id="DeleteEventText"></p>
+		<button id="deleteButton">Delete</button>
+		<button id="closeButton">Close</button>
+	</div>
+	
+	<div class="listOfExercises">
+		<div>ExerciseBox</div>
+		<h1>
+		<!-- <input type="text"id="ex" name="list"value="more about..."> -->
+		<div id="exercises_to_display"></div>
+
+		</h1>
+
+	</div>
+	<script src="schedule.js"></script>
+	<script>show_comments()</script>
+    <script>show_exercises_and_descriptions()</script>
+
+</body>
+
+</html>
+
+<style>
+    body{
+	display: flex;
+	background: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
+	height: 100vh;
+	/* margin: 20px; */
+	/* margin-top: 50px; */
+	/* top: 50px; */
+	margin: 50px;
+	justify-content: center;
+}
+
+/* button {
+	width: 75px;
+	cursor: pointer;
+	box-shadow: 0px 0px 2px gray;
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+  } */
+#content{
+	width: 770px;
+}
+.day{
+	width: 100px;
+	padding: 5px;
+	height: 80px;
+	cursor: pointer;
+	box-sizing: border-box;
+	/* background-color: white; */
+	margin: 5px;
+	box-shadow: 0px 0px 3px darkblue;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+} 
+.event {
+	font-size: 15px;
+	padding: 3px;
+	background-color: #58bae4;
+	/* color: white; */
+	border-radius: 10px;
+	max-height: 55px;
+	overflow: hidden;
+}
+.padding{
+	box-shadow: none;
+}
+
+#boxForm, #Delete_Event{
+	display: none;
+	/* z-index: 20; */
+	padding: 10px;
+	background: linear-gradient(130deg, brown, purple);
+	/* box-shadow: 0px 0px 3px black; */
+	border-radius: 20px;
+	width: 300px;
+	top: 100px;
+	/* left: calc(50% - 175px); */
+	position: absolute;
+	/* font-family: sans-serif; */
+  }
+  #Eventinput {
+	padding: 15px;
+	width: 100%;
+	/* box-sizing: border-box; */
+	margin-bottom: 20px;
+	border-radius: 10px;
+	/* outline: none; */
+	/* border: none; */
+	/* box-shadow: 0px 0px 3px gray; */
+  }
+  /* #input.error {
+	border: 2px solid red;
+  } */
+  #cancelButton, #deleteButton{
+	background-color: lightgreen
+  }
+  #saveButton, #closeButton {
+	background-color: lightgreen;
+  }
+  #form_of_box {
+	display: none;
+	top: 0px;
+	/* left: 0px; */
+	/* z-index: 10; */
+	width: 100vw;
+	height: 100vh;
+	/* position: absolute; */
+	/* background-color: rgba(0,0,0,0.7); */
+  }
+
+
+#days{
+	width: 100%;
+	display: flex;
+}
+#days div{
+	/* margin: 10px;
+	position: flex;
+	display: inline-block; */
+	width: 100px;
+	padding: 10px;
+	/* justify-content: space-between; */
+	/* text-align: center; */
+} 
+
+#calendar{ 
+	width: 100%;
+	/* margin: auto; */
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+  
+.day:hover {
+	background-color: lightcoral;
+}
+.listOfExercises{
+	margin-left: 50px;
+	margin-top: 50px;
+	overflow: scroll;
+	margin-bottom: auto;
+	color: darkgreen;
+	margin-right:auto;
+	box-sizing: border-box;
+	height: 200px;
+	width: 250px;
+}
+
+
+</style>

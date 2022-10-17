@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <nav>
+        <header><h2>XPERT</h2></header>
+    </nav>
+    
+    
+    </header>
+    
+   
+    <head>    
+        <script src="functions.js"></script>
+    </head>
+<body>
+    <button type="button" onclick="kill_session()">log out</button>
+
+    <form action="/action_page.php">
+      <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
+      <br>
+     <button type="button" onclick="save_user_information('c')">save as customer</button>
+     <br>
+     <button type="button" onclick="save_user_information('t')">save as trainer</button>
+    </form>
+     <br>
+     <html>
+ 
+
+        <div class="column">
+            <div class="boxOne">
+              <div class="exercise-catalog">
+                  <div>Exercise Catalog</div>
+                  <div id="exercises_to_display"></div>
+              </div> 
+          </div>
+            <!-- <input type="text"id="ex" name="exer"value="more about..."> -->
+            
+        </div>
+        <script>show_exercises_and_descriptions()</script>
+
+    </div>
+ </body>
+</html>
+     
+        
+
+<style>
+header {
+    
+    padding: 5px;
+    text-align: left;
+    font-size: x-large;
+    color: rgb(59, 54, 54);
+  }
+
+header p{
+    
+    padding: 5px;
+    text-align: left;
+    font-size: 20px;
+    color: rgb(12, 12, 12);
+    float: right;
+
+  }
+  
+
+nav
+{
+    text-shadow: #f2f2f2;
+}
+
+head
+{
+
+    padding: 20px;
+    text-align: left;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+  }
+input[type=text], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 30%;
+    background-color:rgb(64, 5, 5);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .Container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    position: relative;
+}
+
+.cont_left {
+    width: 25%;
+    text-align: center;
+    border: 3px solid #d5b183;
+}
+
+.cont_right {
+    width: 75%;
+    text-align: center;
+}
+body {
+    background-image: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg');
+    background-size: cover;
+  }
+
+.button {
+    background-color:rgb(64, 5, 5);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 30%;
+  }
+ 
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+  }
+  
+  tr:hover {background-color: greenyellow;
+}
+*{
+  box-sizing: border-box;
+}
+/* Set additional styling options for the columns*/
+.column {
+font-size: x-large;
+color: rgb(59, 54, 54);
+float: left;
+width: 50%;
+height: 100px;
+
+}
+.column input[type=text] {
+  
+    color: rgb(3, 3, 3);
+    opacity: 0.8;
+    width: 60%;
+    height:460px ;
+    background-size: cover;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+.row:after {
+content: "";
+display: table;
+clear: both;
+background-color:#d1a996;
+}
+
+.boxOne{
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(400px - 30px);
+    background: rgb(249, 247, 247);
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0.6;
+}
+</style>
