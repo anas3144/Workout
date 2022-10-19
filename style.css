@@ -6,13 +6,15 @@ header {
     color: rgb(59, 54, 54);
   }
 
-header p{
-    
-    padding: 5px;
+nav .button{
+    width: 6%;
+    padding: 10px;
     text-align: left;
     font-size: 20px;
-    color: rgb(12, 12, 12);
+    color: rgb(253, 253, 253);
     float: right;
+    background-color: rgb(64, 5, 5);
+    
 
   }
   
