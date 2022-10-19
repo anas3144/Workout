@@ -58,6 +58,7 @@ app.use(session({
 const User = require('./models/user')
 const Exercise = require('./models/exercise');
 const { db } = require('./models/user');
+const Comment = require('./models/comment');
 const { cp } = require('fs');
 
 //Routers
@@ -107,9 +108,9 @@ app.get('/schedule.js', (req, res, next) => {
 
 // ****** FETCH FROM DB ****** 
 app.get('/exercises_from_db', async (req, res) => {
-    console.log("inside server")
+    //console.log("inside server")
     const exercises = await Exercise.find({});
-    console.log('Exercise:', {exercises})
+    //console.log('Exercise:', {exercises})
     res.send(JSON.stringify(exercises));  
 });
 

@@ -1,6 +1,7 @@
 let mon = 0;
 let click_on_day = null;
-let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+// let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+let events = get_calenderinfo_from_db() ? JSON.parse(get_calenderinfo_from_db()) : [];
 
 const cal = document.getElementById('calendar');
 const boxForm = document.getElementById('boxForm');
@@ -13,7 +14,6 @@ function openbox(date){
 	click_on_day = date;
 	
 	const e_day = events.find(e => e.date === click_on_day);
-	
 	if(e_day){
 		document.getElementById('DeleteEventText').innerText = e_day.title;
 		Delete_Event.style.display = 'block';
@@ -109,7 +109,25 @@ function save_box(){
 			date: click_on_day,
 			title: Eventinput.value,
 		});
-		localStorage.setItem('events',JSON.stringify(events));
+		console.log(events)
+		console.log(click_on_day)
+		// localStorage.setItem('events',JSON.stringify(events));
+		fetch('http://localhost:3000/customer/save_calender_info', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				date: click_on_day,
+				data: Eventinput.value
+			})
+		})
+		.then(function (response) {
+			window.location.href = response.url;
+		})
+		.catch(function (err) {
+			console.log('error: ' + err);
+		});
 		close_box();
 	}else {
 		Eventinput.classList.add('error');
@@ -130,5 +148,49 @@ document.getElementById('deleteButton').addEventListener('click', Delete);
 document.getElementById('cancelButton').addEventListener('click',close_box);
 }
 
+
+
+
+
+
 init()
 Full_Date();
+
+function get_calenderinfo_from_db(){
+	console.log("inside get_comments-from_db in schedule.js")
+	fetch('http://localhost:3000/customer/calenderinfo_from_db', {
+        method: 'GET',   
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })       
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("back in function calenderinfo")
+        console.log(data)
+		array_with_comments = new Array
+		array_with_comments = display_calenderinfo(data) 
+		console.log(array_with_comments)
+		return array_with_comments
+    
+    })
+	.catch(function (err) {
+    });
+}
+
+function display_calenderinfo(data){
+	var array = new Array(); 
+	for(var i = 0; i < data.length; i++){
+		//array.push("{" + "\"date\"" + ":" + "\"" + data[i].date + "\"" + "," + "\"" + "title" + "\"" + ":" + "\"" + data[i].title + "\"" + "}")
+		//array.push("{" + "date: " + "\"" + data[i].date + "\"" + ", " + "title: " + "\"" + data[i].title + "\"" + "}")
+		// array.push("date: " + "\"" + data[i].date + "\"" + ", " + "title: " + "\"" + data[i].title + "\"")
+		let comment = {
+			date: data[i].date,
+			title: data[i].title
+		}
+		array.push(comment)
+	}
+	return array
+}

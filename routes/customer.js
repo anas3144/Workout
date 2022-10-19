@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router() 
 const User = require('./../models/user')
+const Comment = require('../models/comment')
 
 const isAuthCustomer = function (req, res, next) {
     if (req.session.isAuth && (req.session.usertype === 'c' || req.session.usertype === 't')) {
@@ -37,21 +38,46 @@ router.post('/save_comment', async (req, res) => {
 router.get('/comments_from_db', async (req, res) => {
     customer_name = req.session.username;
     const customer = await User.findOne({ username: customer_name})
-    console.log(customer)
-    console.log("inside server")
+    // console.log("inside comments_from_db")
+    // console.log(customer)
+    //console.log("inside server")
     const comments = customer.comment;
-    console.log('Comment:', {comments})
+    //console.log('Comment:', {comments})
     res.send(JSON.stringify(comments));  
 });
 
 
-// search user by usernamename -> /getuser/:id ? to see only one record ?
-router.post('/getuser', async (req, res) => {
-    let find_user = req.body.find_user.trim()
-    console.log(find_user)
-    let search = await User.findOne({ username: find_user.username }).exec()
+//save information from the calender into db 
+router.post('/save_calender_info', async (req, res) => {
+    console.log("inside save_calender_info server")
+    // //search for user in schedule
+    // const one_schedule = await Schedule.findOne({username: username})
+    // //if it founds a schedule: update it
+    // if(one_schedule){
+    //     var doc = await User.findOneAndUpdate(username, {$push: new_calender_info}, {
+    //     new: true 
+    // }
+    // const new_calender_info = {calenderinfo: date + ":" + "," +  data }
+    const comment = new Comment({
+        username: req.session.username,
+        date: req.body.date,
+        title: req.body.data
+    })
+    console.log(comment)
+    try{
+        await comment.save()
+        res.redirect('/customer')
+    }
+    catch (error){
+        console.log("could not save comment")
+    }
+})
 
-    res.send({ find_user: search })
+router.get('/calenderinfo_from_db', async (req, res) => {
+    console.log("inside comments_from_db")
+    const comments = await Comment.find({username: req.session.username})
+    console.log(comments)
+    res.send(JSON.stringify(comments)); 
 })
 
 module.exports = router
