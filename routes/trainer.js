@@ -19,7 +19,7 @@ router.get('/', isAuthTrainer, (req, res) => {
 
 //adds an exercise and description to the database
 router.post('/addexercise', isAuthTrainer, async (req, res) => {
-    console.log("inside addexercises")
+    //console.log("inside addexercises")
     const exercise = new Exercise({
         name: req.body.exercise,
         description: req.body.description
@@ -33,16 +33,5 @@ router.post('/addexercise', isAuthTrainer, async (req, res) => {
  
 })
 
-//search user  from DB
-router.post('/search',  async (req, res) => {
-    console.log("inside server for searching")
-    const search_c = req.body.username;
-    console.log("search object", search_c)
-    const searchResult = await User.find({ username: { $regex: search_c }});
-    // const user = await Use.where("username").equals(input.username)
-    console.log("search result ..", searchResult);
-
-    res.redirect('../customer')  // hue ser ut själva sidan som innehåller usersinfo 
-})
 
 module.exports = router

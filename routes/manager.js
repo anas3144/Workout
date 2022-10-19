@@ -55,4 +55,13 @@ function generate_password(){
     return password;  
 }
 
+
+// delete a user from DB
+router.post('/delete',  async (req, res) => {
+    console.log("inside server for deleting a record")
+    const delResult = await User.findOneAndDelete({ username:req.body.username });
+    console.log("result of deleting ..", delResult);
+    res.redirect('/manager') 
+})
+
 module.exports = router

@@ -61,8 +61,7 @@ function show_exercises_and_descriptions(){
         return response.json();
     })
     .then(function (data) {
-        console.log("back in function")
-        console.log(data)
+
         append_data(data);
     
     })
@@ -78,33 +77,6 @@ function append_data(data) {
         div.innerHTML = 'Exercise: ' + data[i].name+ ' ' + 'Description:' + data[i].description;
         container.appendChild(div);
     }
-}
-
-// for searching a particuler user
-function getUsername(userName, done){
-    console.log("inside get username funciton")
-    const inputusername = document.getElementById("inputfield_search").value;
-    console.log(inputusername);
-    fetch('http://localhost:3000/trainer/search', {  //?username=${username}
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            username : inputusername
-
-         })
-    })
-    .then(function (response) {
-        //return response.json();
-        window.location.href = response.url;
-    })
-    .then(function (data) {
-        console.log("back in function")
-        console.log(data)
-    })
-    .catch(function (err) {
-    });
 }
 
 
@@ -195,3 +167,34 @@ function append_comments(data) {
         container.appendChild(div);
     }
 }
+
+
+// ****** MANAGER PAGE ******
+// delete a record of  client/trainer
+function deleteRecord(userName){
+    console.log("inside delete user funciton")
+    const inputname = document.getElementById("inputfield_delete").value;
+    console.log(inputname);
+    fetch('http://localhost:3000/manager/delete', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username : inputname
+
+        })
+    })
+    .then(function (response) {
+        return response.json();
+        //window.location.href = response.url;
+    })
+    .then(function (data) {
+        console.log("back in function")
+        console.log(data)
+    })
+    .catch(function (err) {
+    });
+}
+
+
