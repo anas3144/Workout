@@ -4,13 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Setup</title>
     <script src="functions.js"></script>
 </head>
 <body>
-    <input type="text" id="inputfield_username" name="firstname" placeholder="Enter name...">
-    <br>
-   <button type="button" onclick="save_user_information('m')">save manager</button>
-   <br>
+    <div class="container">
+                <input type="text" id="inputfield_username" name="firstname" placeholder="Enter name...">
+                <button class="button" onclick="save_user_information('m')">Save Manager</button>
+                
+        </div>
 </body>
 </html>
+
+<style>
+
+
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    position: relative;
+    margin-top: 288px;
+    justify-content: center;
+    font-size: large;
+}
+
+
+.button{
+    background-color: rgb(64, 5, 5);
+    border: 4px double #ccc;
+    color: rgb(159, 150, 150);
+    padding: 10px;
+    width: auto;
+    margin-left: 10px;
+}
+</style>
