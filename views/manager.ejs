@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <!--<header>
         <nav>
         <header><h2>XPERT</h2></header>
-    </nav>
+    </nav>-->
     
-    
-    </header>
-    
-   
     <head>    
         <script src="functions.js"></script>
-    </head>
-<body>
-    <button type="button" onclick="kill_session()">log out</button>
+  </head>
+  <body>
 
-    <form action="/action_page.php">
-      <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
-      <br>
-     <button type="button" onclick="save_user_information('c')">save as customer</button>
-     <br>
-     <button type="button" onclick="save_user_information('t')">save as trainer</button>
-    </form>
-     <br>
-     <html>
- 
+    <div class="container">
+      <header>
+      <!--<nav>-->
+        <header><h2>XPERT</h2></header>
+      <!--</nav> -->
+
+      <form action="/action_page.php">
+        <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
+        <button class="button" onclick="save_user_information('c')">Save as customer</button>
+        <button class="button" onclick="save_user_information('t')">Save as Trainer</button>
+      </form>
+
+      <form class="delete" action="/delete" method="delete">
+        <input class="bar" type="text" placeholder="Delete by username" id="inputfield_delete">
+        <button class="button" onclick="deleteRecord()" type="button">Delete</button>
+      </form>
+
+  
 
         <div class="column">
-            <div class="boxOne">
-              <div class="exercise-catalog">
-                  <div>Exercise Catalog</div>
-                  <div id="exercises_to_display"></div>
-              </div> 
+          <div>Exercise Catalog</div>
+              <div class="boxOne">
+                <div class="exercise-catalog">
+                    
+                    <div id="exercises_to_display"></div>
+                  </div> 
+                </div>
+              </div>
           </div>
-            <!-- <input type="text"id="ex" name="exer"value="more about..."> -->
+              <!-- <input type="text"id="ex" name="exer"value="more about..."> -->
             
-        </div>
-        <script>show_exercises_and_descriptions()</script>
+            <div class="buttonBox">
+              <button class="button"onclick="kill_session()">Log Out</button>
+            </div>
+              
+          </div>
+    
 
-    </div>
- </body>
+    <script>show_exercises_and_descriptions()</script>
+  </body>
 </html>
      
         
 
 <style>
 header {
-    
     padding: 5px;
     text-align: left;
     font-size: x-large;
@@ -63,12 +72,12 @@ header p{
 
   }
   
-
+/*
 nav
 {
     text-shadow: #f2f2f2;
 }
-
+*/
 head
 {
 
@@ -123,14 +132,16 @@ input[type=text], select {
     text-align: center;
 }
 body {
-    background-image: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg');
-    background-size: cover;
+    /*background-image: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
+    background-size: cover; *//*img repeats itself when you put it in the body. added a container with the image instead*/
+    background: black;
   }
+
 
 .button {
     background-color:rgb(64, 5, 5);
     border: none;
-    color: white;
+    color: rgb(159, 150, 150);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -138,8 +149,10 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    width: 30%;
+    width: auto;
   }
+  
+
  
   table {
     border-collapse: collapse;
@@ -161,7 +174,8 @@ body {
 /* Set additional styling options for the columns*/
 .column {
 font-size: x-large;
-color: rgb(59, 54, 54);
+font-weight: bold;
+color: rgb(17, 17, 17);
 float: left;
 width: 50%;
 height: 100px;
@@ -185,6 +199,7 @@ background-color:#d1a996;
 }
 
 .boxOne{
+  /*
     position: relative;
     width: calc(400px - 30px);
     height: calc(400px - 30px);
@@ -194,5 +209,36 @@ background-color:#d1a996;
     box-sizing: border-box;
     overflow: hidden;
     opacity: 0.6;
+  */
+  overflow: auto;
+  margin-bottom: auto;
+  color: rgb(0, 0, 0);
+  background-color:  white;
+  opacity: 0.8;
+  /* display: flex no-repeat cover/cover; */
+  margin-right: auto;
+  box-sizing: border-box;
+  font-size: 17px;
+  height: 386%;
+  width: 60%;
+  opacity: 0.6;
+    
+}
+
+
+
+.buttonBox{
+	text-align: right;
+	margin-top: 0px;
+	border-radius: 50px;
+}
+
+.container{
+  position: relative;
+  text-align: left;
+  background-color: rgb(21, 20, 20);
+  background: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
+  background-size: cover;
+  min-height: 100vh;
 }
 </style>
