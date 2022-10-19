@@ -122,7 +122,7 @@ width: 50%;
 height: 100px;
 
 }
-.column input[type=text] {
+.column textarea[type=text] {
   
     color: rgb(3, 3, 3);
     opacity: 0.8;
