@@ -40,7 +40,7 @@
 
 
 	<div id="boxForm">
-		<h1>Write what do you want. Dont forget rest time</h1>
+		<h1>Write what you want to do. Don't forget schedule rest</h1>
 		<input type="text" id="Eventinput" placeholder="Enter your text">
 		<button id="saveButton"> Save</button>
 		<button id="cancelButton">cancel</button>
@@ -124,7 +124,7 @@
 	display: none;
 	/* z-index: 20; */
 	padding: 10px;
-	background: linear-gradient(130deg, brown, purple);
+	background: linear-gradient(130deg, rgb(172, 53, 53), rgb(231, 227, 231));
 	/* box-shadow: 0px 0px 3px black; */
 	border-radius: 20px;
 	width: 300px;
@@ -134,30 +134,38 @@
 	/* font-family: sans-serif; */
   }
   #Eventinput {
-	padding: 15px;
-	width: 100%;
+	padding: 20px;
+	width: 85%;
 	/* box-sizing: border-box; */
 	margin-bottom: 20px;
 	border-radius: 10px;
 	/* outline: none; */
-	/* border: none; */
+	border: none; 
 	/* box-shadow: 0px 0px 3px gray; */
   }
   /* #input.error {
 	border: 2px solid red;
   } */
   #cancelButton, #deleteButton{
-	background-color: lightgreen
+	background-color: rgb(252, 252, 253);
+	margin-bottom: 35px;
+	border-radius: 5px;
+	border: none;
+	padding: 8px;
   }
   #saveButton, #closeButton {
-	background-color: lightgreen;
+	background-color: rgb(252, 252, 253);
+	margin-bottom: 35px;
+	border-radius: 5px;
+	border: none;
+	padding: 8px;
   }
   #form_of_box {
 	display: none;
 	top: 0px;
 	/* left: 0px; */
 	/* z-index: 10; */
-	/* width: 100vw; */
+	width: 250vw;
 	height: 100vh;
 	/* position: absolute; */
 	/* background-color: rgba(0,0,0,0.7); */
@@ -188,7 +196,7 @@
 
   
 .day:hover {
-	background-color: lightcoral;
+	background-color: rgb(247, 236, 206);
 }
 .listOfExercises{
 	margin-left: 50px;
