@@ -37,7 +37,8 @@
             <div class="boxOne">
               <div class="exercise-catalog">
                   <h2>Exercise Catalog</h2>
-                  <textarea type="text"id="ex" name="exer"value="exercises_to_display"></textarea>
+                  <!-- <textarea type="text"id="ex" name="exer"value="exercises_to_display">  </textarea> -->
+                  <div id="exercises_to_display"></div>
               </div> 
           </div>
             <!-- <input type="text"id="ex" name="exer"value="more about..."> -->
@@ -224,4 +225,30 @@ background-color:#d1a996;
   opacity: 0.6;
 } */
 
+.boxOne{
+  /*
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(400px - 30px);
+    background: rgb(249, 247, 247);
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0.6;
+  */
+  overflow: auto;
+  margin-bottom: auto;
+  color: rgb(0, 0, 0);
+  background-color:  white;
+  opacity: 0.8;
+  /* display: flex no-repeat cover/cover; */
+  margin-right: auto;
+  box-sizing: border-box;
+  font-size: 17px;
+  height: 386%;
+  width: 60%;
+  opacity: 0.6;
+    
+}
 </style>

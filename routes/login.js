@@ -27,10 +27,7 @@ router.get('/', (req, res) => {
 
 //check if the user have right password
 router.post('/check_validation', async (req, res) => {
-    console.log("inside login server")
     const user = await User.findOne({ username: req.body.username})
-    console.log(user)
-    console.log(user.password)
     var validpassword = false; 
     if(user){
         validpassword = await bcrypt.compare(req.body.password, user.password)
@@ -38,17 +35,13 @@ router.post('/check_validation', async (req, res) => {
             req.session.isAuth = true;
             req.session.username = user.username; 
             req.session.usertype = user.usertype;
-            console.log(req.session);
             if(user.usertype === 'c'){
-                console.log("customer")
                 res.redirect('../customer')
             }
             else if(user.usertype === 't'){
-                console.log("trainer")
                 res.redirect('../trainer')
             }
             else if(user.usertype === 'm'){
-                console.log("manager")
                 res.redirect('../manager')
             }
         }
@@ -59,8 +52,6 @@ router.post('/check_validation', async (req, res) => {
     else{
         res.status(401).json({ error: "user don't exist"})
     }
-    
-
 })
 
 module.exports = router
