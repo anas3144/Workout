@@ -20,7 +20,6 @@ router.get('/', isAuthManager, (req, res) => {
 
 // '/manager/save_user'
 router.post('/save_user', async (req, res) => {
-    console.log("inside saveuser")
     var password = generate_password()
     var hashpassword = ""
     const salt = await bcrypt.genSalt(10)
@@ -43,7 +42,6 @@ router.post('/save_user', async (req, res) => {
 //math.random -> returns floating point
 //generates a password 
 function generate_password(){
-    console.log("inside generatepassword")
     var chars= "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var password_length = 10; 
     var password = "";
@@ -51,6 +49,7 @@ function generate_password(){
         var random_nr = Math.floor(Math.random() * chars.length); 
         password += chars.charAt(random_nr);
     } 
+    console.log("Generated password:")
     console.log(password);
     return password;  
 }
@@ -58,9 +57,7 @@ function generate_password(){
 
 // delete a user from DB
 router.post('/delete',  async (req, res) => {
-    console.log("inside server for deleting a record")
-    const delResult = await User.findOneAndDelete({ username:req.body.username });
-    console.log("result of deleting ..", delResult);
+    await User.findOneAndDelete({ username:req.body.username });
     res.redirect('/manager') 
 })
 

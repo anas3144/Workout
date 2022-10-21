@@ -58,7 +58,7 @@ app.use(session({
 const User = require('./models/user')
 const Exercise = require('./models/exercise');
 const { db } = require('./models/user');
-const Comment = require('./models/comment');
+const Calender = require('./models/gymcalendar');
 const { cp } = require('fs');
 
 //Routers

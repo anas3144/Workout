@@ -7,10 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Schedule</title>
 	<script src="functions.js"></script>
+	
 </head>
 
 <body>
-	<button type="button" onclick="kill_session()">log out</button>
+	<button class="logout" type="button" onclick="kill_session()">Log Out</button>
 	<div class="boxTwo">
 		<div class="commentBox">
 			<div>Comment Box</div>
@@ -29,7 +30,7 @@
 			<div>Sunday</div>
 			<div>Monday</div>
 			<div>Tuesday</div>
-			<div>wednesday</div>
+			<div>Wednesday</div>
 			<div>Thursday</div>
 			<div>Friday</div>
 			<div>Saturday</div>
@@ -40,7 +41,7 @@
 
 
 	<div id="boxForm">
-		<h1>Write what do you want. Dont forget rest time</h1>
+		<h1>Write what you want to do. Don't forget schedule rest</h1>
 		<input type="text" id="Eventinput" placeholder="Enter your text">
 		<button id="saveButton"> Save</button>
 		<button id="cancelButton">cancel</button>
@@ -52,28 +53,26 @@
 		<button id="deleteButton">Delete</button>
 		<button id="closeButton">Close</button>
 	</div>
-	
+	<div id="form_of_box"></div>
 	<div class="listOfExercises">
 		<div>ExerciseBox</div>
-		<h1>
-		<!-- <input type="text"id="ex" name="list"value="more about..."> -->
 		<div id="exercises_to_display"></div>
 
-		</h1>
 
 	</div>
 	<script src="schedule.js"></script>
 	<script>show_comments()</script>
     <script>show_exercises_and_descriptions()</script>
+
 </body>
 
 </html>
 
 <style>
-    body{
+  body{
 	display: flex;
-	background: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
 	height: 100vh;
+	background: url('https://media.discordapp.net/attachments/1016780065209602178/1026915590344020059/gym-600.jpg') no-repeat center/cover;
 	/* margin: 20px; */
 	/* margin-top: 50px; */
 	/* top: 50px; */
@@ -90,7 +89,7 @@
 	padding: 5px;
 	border-radius: 5px;
 	color: white;
-  } */
+} */
 #content{
 	width: 770px;
 }
@@ -110,7 +109,7 @@
 .event {
 	font-size: 15px;
 	padding: 3px;
-	background-color: #58bae4;
+	background-color: white;
 	/* color: white; */
 	border-radius: 10px;
 	max-height: 55px;
@@ -124,7 +123,7 @@
 	display: none;
 	/* z-index: 20; */
 	padding: 10px;
-	background: linear-gradient(130deg, brown, purple);
+	background: linear-gradient(130deg, rgb(172, 53, 53), rgb(231, 227, 231));
 	/* box-shadow: 0px 0px 3px black; */
 	border-radius: 20px;
 	width: 300px;
@@ -135,29 +134,39 @@
   }
   #Eventinput {
 	padding: 15px;
-	width: 100%;
+	width: 90%;
 	/* box-sizing: border-box; */
 	margin-bottom: 20px;
 	border-radius: 10px;
 	/* outline: none; */
-	/* border: none; */
+	border: none;
 	/* box-shadow: 0px 0px 3px gray; */
   }
   /* #input.error {
 	border: 2px solid red;
   } */
   #cancelButton, #deleteButton{
-	background-color: lightgreen
+	background-color: rgb(64, 5, 5);
+	color: rgb(159, 150, 150);
+	margin-bottom: 35px;
+	border-radius: 5px;
+	border: none;
+	padding: 8px;
   }
   #saveButton, #closeButton {
-	background-color: lightgreen;
+	background-color: rgb(64, 5, 5);
+	color: rgb(159, 150, 150);
+	margin-bottom: 35px;
+	border-radius: 5px;
+	border: none;
+	padding: 8px;
   }
   #form_of_box {
-	display: none;
+	display:none;
 	top: 0px;
 	/* left: 0px; */
 	/* z-index: 10; */
-	width: 100vw;
+	/* width: 250vw; */
 	height: 100vh;
 	/* position: absolute; */
 	/* background-color: rgba(0,0,0,0.7); */
@@ -188,10 +197,46 @@
 
   
 .day:hover {
-	background-color: lightcoral;
+	background-color: rgb(247, 236, 206);
 }
 .listOfExercises{
-	margin-left: 50px;
+	margin-left: 5px;
+	margin-top: 50px;
+	overflow: scroll;
+	margin-bottom: auto;
+	background-color: white;
+	font-size: 20px;
+	margin-right:auto;
+	box-sizing: border-box;
+	height: 200px;
+	width: 250px;
+}
+.boxTwo{
+	margin-right: 5px;
+	margin-top: 50px;
+	overflow: scroll;
+	margin-bottom: auto;
+	background-color: white;
+	box-sizing: border-box;
+	height: 200px;
+	width: 250px;
+}
+#comment{
+	background-color: rgb(64, 5, 5);
+	color: rgb(159, 150, 150);
+}
+
+/* #ex{ */
+	/* color: rgb(3, 3, 3);
+    opacity: 0.8;
+    width: 60%;
+    height:460px ;
+    background-size: cover;
+    border-radius: 4px;
+    box-sizing: border-box; */
+	
+	
+	/* margin-left: 50px;
 	margin-top: 50px;
 	overflow: scroll;
 	margin-bottom: auto;
@@ -199,8 +244,17 @@
 	margin-right:auto;
 	box-sizing: border-box;
 	height: 200px;
-	width: 250px;
-}
+	width: 250px; */
+/* } */
 
+.logout{
+	height: 30px;
+	width: 150px;
+	font-weight: bold;
+	background-color: rgb(64, 5, 5);
+	color: rgb(159, 150, 150);
+	border-radius: 20px;
+}
+  
 
 </style>

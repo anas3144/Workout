@@ -3,6 +3,7 @@
     <header>
         <nav>
         <header><h2>XPERT</h2></header>
+        <button type="button" class="button" onclick="kill_session()">log out</button>
     </nav>
     
     
@@ -13,19 +14,19 @@
         <script src="functions.js"></script>
     </head>
 <body>
-    <button type="button" onclick="kill_session()">log out</button>
+    
 
     <form action="/action_page.php">
       <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
       <br>
-     <button type="button" onclick="save_user_information('c')">save as customer</button>
+     <button type="button" class="button" onclick="save_user_information('c')">save as customer</button>
      <br>
-     <button type="button" onclick="save_user_information('t')">save as trainer</button>
+     <button type="button" class="button" onclick="save_user_information('t')">save as trainer</button>
     </form>
 
     <form class="delete" action="/delete" method="delete">
       <input class="bar" type="text" placeholder="Delete by username" id="inputfield_delete">
-      <button onclick="deleteRecord()" type="button">Delete</button>
+      <button onclick="deleteRecord()"class="del" type="button">Delete</button>
     </form>
 
      <br>
@@ -35,7 +36,8 @@
         <div class="column">
             <div class="boxOne">
               <div class="exercise-catalog">
-                  <div>Exercise Catalog</div>
+                  <h2>Exercise Catalog</h2>
+                  <!-- <textarea type="text"id="ex" name="exer"value="exercises_to_display">  </textarea> -->
                   <div id="exercises_to_display"></div>
               </div> 
           </div>
@@ -58,16 +60,32 @@ header {
     font-size: x-large;
     color: rgb(59, 54, 54);
   }
+  
 
-header p{
-    
-    padding: 5px;
-    text-align: left;
+nav .button{
+    border-radius:10rem;
+    width: 8%;
+    padding: 10px;
+    text-align: center;
     font-size: 20px;
-    color: rgb(12, 12, 12);
+    color: rgb(253, 253, 253);
     float: right;
+    background-color: rgb(64, 5, 5);
+    
 
   }
+
+.del 
+{
+  width: 8%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(253, 253, 253);
+    border-radius:10rem;
+    background-color: rgb(64, 5, 5);
+}
+
   
 
 nav
@@ -172,13 +190,18 @@ float: left;
 width: 50%;
 height: 100px;
 
+
 }
-.column input[type=text] {
+.column textarea[type=text] {
   
     color: rgb(3, 3, 3);
     opacity: 0.8;
     width: 60%;
-    height:460px ;
+    min-width: 60%;
+    max-width: 600px;
+    height: 410px;
+    max-height:410px;
+    min-height: 300px;
     background-size: cover;
     border-radius: 4px;
     box-sizing: border-box;
@@ -190,7 +213,20 @@ clear: both;
 background-color:#d1a996;
 }
 
+/* .boxOne{
+  position: relative;
+  width: calc(400px - 30px);
+  height: calc(400px - 30px);
+  background: rgb(249, 247, 247);
+  float: left;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  opacity: 0.6;
+} */
+
 .boxOne{
+  /*
     position: relative;
     width: calc(400px - 30px);
     height: calc(400px - 30px);
@@ -200,5 +236,19 @@ background-color:#d1a996;
     box-sizing: border-box;
     overflow: hidden;
     opacity: 0.6;
+  */
+  overflow: auto;
+  margin-bottom: auto;
+  color: rgb(0, 0, 0);
+  background-color:  white;
+  opacity: 0.8;
+  /* display: flex no-repeat cover/cover; */
+  margin-right: auto;
+  box-sizing: border-box;
+  font-size: 17px;
+  height: 386%;
+  width: 60%;
+  opacity: 0.6;
+    
 }
 </style>

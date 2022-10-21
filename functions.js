@@ -4,8 +4,6 @@
 function save_user_information(number){
     var username = document.getElementById("inputfield_username").value;
     var usertype = number;
-    console.log(username)
-    console.log(usertype)
     fetch('http://localhost:3000/manager/save_user', {
         method: 'POST',
         headers: {
@@ -17,7 +15,6 @@ function save_user_information(number){
         })
     })
     .then(function (response) {
-        console.log(response);
     })
     .catch(function (err) {
         console.log('error: ' + err);
@@ -103,7 +100,6 @@ function check_validation(){
 }
 
 function kill_session(){
-    console.log("inside killsession")
     fetch('http://localhost:3000/logout', {
         method: 'GET',
         headers: {
@@ -172,9 +168,7 @@ function append_comments(data) {
 // ****** MANAGER PAGE ******
 // delete a record of  client/trainer
 function deleteRecord(userName){
-    console.log("inside delete user funciton")
     const inputname = document.getElementById("inputfield_delete").value;
-    console.log(inputname);
     fetch('http://localhost:3000/manager/delete', { 
         method: 'POST',
         headers: {
@@ -187,10 +181,8 @@ function deleteRecord(userName){
     })
     .then(function (response) {
         return response.json();
-        //window.location.href = response.url;
     })
     .then(function (data) {
-        console.log("back in function")
         console.log(data)
     })
     .catch(function (err) {
