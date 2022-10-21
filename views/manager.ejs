@@ -20,12 +20,14 @@
         <input type="text" id="inputfield_username" name="firstname" placeholder="Username">
         <button class="button" onclick="save_user_information('c')">Save as customer</button>
         <button class="button" onclick="save_user_information('t')">Save as Trainer</button>
+        <div>Password will be generated automatically by the program when pressing save.</div>
       </form>
 
       <form class="delete" action="/delete" method="delete">
         <input class="bar" type="text" placeholder="Delete by username" id="inputfield_delete">
         <button class="button" onclick="deleteRecord()" type="button">Delete</button>
       </form>
+      
 
   
 
